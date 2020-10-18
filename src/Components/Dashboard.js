@@ -32,7 +32,11 @@ const Dashboard = () =>{
        return <Redirect to="/" />
    }
   
- 
+   const handlerLogout =()=>{
+    localStorage.clear()
+    console.log(localStorage.length)
+
+  }
     return(
         
                <Container>
@@ -41,6 +45,7 @@ const Dashboard = () =>{
                       email :  {mail}
                      <p>  Emailverified : {eV}</p>
                    </Row>
+                   <button onClick={handlerLogout}>LOGOUT</button>
                </Container> 
         
     )
