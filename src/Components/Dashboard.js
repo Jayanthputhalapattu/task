@@ -11,6 +11,9 @@ const Dashboard = () =>{
           var token = JSON.parse(localStorage.getItem('login')).token
       
         }
+        else{
+            return <Redirect to="/" />
+        }
         axios.get('https://xenodochial-dijkstra-938bdb.netlify.app/.netlify/functions/server/user/validjwt',
       
         {headers: { Authorization: `Bearer ${token}` }})
