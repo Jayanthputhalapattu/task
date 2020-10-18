@@ -35,7 +35,7 @@ const Dashboard = () =>{
    const handlerLogout =()=>{
     localStorage.clear()
     console.log(localStorage.length)
-
+  return <Redirect to="/" />
   }
     return(
         
