@@ -15,7 +15,7 @@ const SignUp = () =>{
             return toast("Passwords does not match",{type:"error"})
         }
      
-        const response = await Axios.post("http://localhost:5000/.netlify/functions/server/user/signup",{username:email,password:password})
+        const response = await Axios.post("https://xenodochial-dijkstra-938bdb.netlify.app/.netlify/functions/server/user/signup",{username:email,password:password})
         console.log(response)
         if (response.data.success)
         {
