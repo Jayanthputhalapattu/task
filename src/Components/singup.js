@@ -2,7 +2,7 @@ import React, { useState } from "react"
 
 import Axios from "axios"
 import { toast, ToastContainer } from "react-toastify"
-import { Input, Container, Row, Col } from "reactstrap"
+import {  Container } from "reactstrap"
 
 const SignUp = () =>{
     const [email,setEmail] = useState("")

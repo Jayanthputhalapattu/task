@@ -1,12 +1,17 @@
-import React, { Component, useEffect, useState }  from 'react';
-import {Col,Row,Container} from "reactstrap"
+import React, { useEffect, useState }  from 'react';
+import {Row,Container} from "reactstrap"
 import {Redirect} from "react-router-dom"
 import axios from 'axios';
 const Dashboard = () =>{
     const [mail,setMail] = useState("")
     const [eV,seteV] = useState()
     useEffect(()=>{
-        axios.get('http://localhost:5000/.netlify/functions/server/user/validjwt',
+        if (localStorage.login)
+        {
+          var token = JSON.parse(localStorage.getItem('login')).token
+      
+        }
+        axios.get('https://xenodochial-dijkstra-938bdb.netlify.app/.netlify/functions/server/user/validjwt',
       
         {headers: { Authorization: `Bearer ${token}` }})
         .then(res=>{
@@ -21,16 +26,12 @@ const Dashboard = () =>{
         })
       
       },[])
-   if (localStorage.length==0)
+   if (localStorage.length===0)
    {
        console.log(0)
        return <Redirect to="/" />
    }
-   if (localStorage.login)
-   {
-     var token = JSON.parse(localStorage.getItem('login')).token
- 
-   }
+  
  
     return(
         

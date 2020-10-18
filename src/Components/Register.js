@@ -1,8 +1,8 @@
 import React,{useState,useEffect} from "react"
-import { Redirect ,withRouter} from "react-router-dom"
+import { Redirect} from "react-router-dom"
 
 import axios from "axios";
-import {Container,Col,Row, Toast,} from "reactstrap"
+import {Container,Col,Row} from "reactstrap"
 import "react-toastify/dist/ReactToastify.css";
 import {toast, ToastContainer} from "react-toastify"
 const Register = () =>{
@@ -19,16 +19,12 @@ const changeHandler = () =>{
        })
       
 }
-if (localStorage.login)
-{
-  var token = JSON.parse(localStorage.getItem('login')).token
-}
 
 const sendHandler =async (e)=>{
     e.preventDefault();   
-   var response = await axios.post("http://localhost:5000/.netlify/functions/server/user/login",credentials)
+   var response = await axios.post("https://xenodochial-dijkstra-938bdb.netlify.app/.netlify/functions/server/user/login",credentials)
   
-   if (response.data.success==false){
+   if (response.data.success===false){
         setIsloggedin(false)
         return toast(response.data.status.message,{type:"error"})
      }
@@ -43,7 +39,12 @@ const sendHandler =async (e)=>{
 }
 
 useEffect(()=>{
-  axios.get('http://localhost:5000/.netlify/functions/server/user/validjwt',
+  if (localStorage.login)
+{
+  var token = JSON.parse(localStorage.getItem('login')).token
+}
+
+  axios.get('https://xenodochial-dijkstra-938bdb.netlify.app/.netlify/functions/server/user/validjwt',
 
   {headers: { Authorization: `Bearer ${token}` }})
   .then(res=>{
