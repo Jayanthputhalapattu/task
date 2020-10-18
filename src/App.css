@@ -1,38 +1,87 @@
-.App {
+
+.Cardq {
+  background: #fff;
+  border-radius: 2px;
+  display: inline-block;
+  height: 400px;
+  margin: 1rem;
+  position: relative;
+  width: 300px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  margin-bottom: 50px;
+  
+}
+
+.Cardq:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.btnn{
+  background-color: #03a9f4;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.225);
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: .8px;
   text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  height: 48px;
+  margin-bottom: 20px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+#ripple {
+  position: relative;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
 }
 
-.App-logo {
-  height: 40vmin;
+#ripple:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
   pointer-events: none;
+  background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(10, 10);
+  opacity: 0;
+  transition: transform .5s, opacity 1s;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#ripple:active:after {
+  transform: scale(0, 0);
+  opacity: .3;
+  transition: 0s;
+  
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.navli li{
+    margin-right:50px;
+}
+.foot{
+  
+
+  left: 0;
+  top:100%;
+
+  width: 100%;
+  background-color: red;
   color: white;
+  text-align: center;
+
+  padding-bottom: 2px;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.loginForm{
+  width: 300px;
+  background:white;
+  position: relative;
+  padding:20px 30px;
+  border-radius: 8px;
+  box-shadow:  0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  margin:auto;
+  top:50%
 }
